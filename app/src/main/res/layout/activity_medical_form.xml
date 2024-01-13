@@ -1,9 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".MedicalFormActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <!-- Section: Medical History -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medical History"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/editTextConditionsform"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pre-existing Conditions"/>
+
+    <EditText
+        android:id="@+id/editTextAllergies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Allergies"/>
+
+    <EditText
+        android:id="@+id/editTextMedicationsform"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Current Medications"/>
+
+    <!-- Section: Additional Medical Information -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Additional Medical Information"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/editTextPhysician"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Primary Care Physician"/>
+
+    <EditText
+        android:id="@+id/editTextInsurance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Insurance Information"/>
+
+    <EditText
+        android:id="@+id/editTextKnownConditions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Known Conditions"/>
+
+    <EditText
+        android:id="@+id/CurrentSymptoms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Current Symptoms"/>
+
+    <!-- Section: Emergency Contacts -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Emergency Contacts"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/editTextEmergencyContactform"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Emergency Contact Name and Number"/>
+
+    <EditText
+        android:id="@+id/EmergencyContactRelationship"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Emergency Contact Relationship"/>
+
+    <!-- Section: Other Information -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Other Information"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/PreferredHospital"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Preferred Hospital"/>
+
+    <EditText
+        android:id="@+id/DietaryRestrictions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dietary Restrictions"/>
+
+    <EditText
+        android:id="@+id/RecentTests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Recent Medical Tests"/>
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:onClick="submitForm"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
