@@ -89,7 +89,7 @@ public class DBhelper extends SQLiteOpenHelper {
         values.put(COLUMN_ADDRESS, address);
         values.put(COLUMN_GENDER, gender);
         values.put(COLUMN_BLOOD_GROUP, bloodGroup);
-        values.put(COLUMN_USER_PROFILE, userProfile); // Insert user profile picture
+        values.put(COLUMN_USER_PROFILE, userProfile); // Insert user profile picture here
 
         return db.insert(TABLE_USER_PROFILES, null, values);
     }

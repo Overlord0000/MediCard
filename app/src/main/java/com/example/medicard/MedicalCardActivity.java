@@ -38,7 +38,7 @@ public class MedicalCardActivity extends AppCompatActivity {
         DBhelper dbHelper = new DBhelper(this);
         MedicalRecord medicalRecord = dbHelper.getMedicalRecord();
 
-        // Set information to TextViews
+        // Set information to TextView
         if (medicalRecord != null) {
             fullNameTextView.setText("Full Name: " + medicalRecord.getFullName());
             emergencyContactTextView.setText("Emergency Contact: " + medicalRecord.getEmergencyContact());
@@ -47,7 +47,7 @@ public class MedicalCardActivity extends AppCompatActivity {
             bloodGroupTextView.setText("Blood Group: " + medicalRecord.getBloodGroup());
         }
 
-        // Generate QR code and set it to ImageView
+        // Generate QR code and set it to ImageView hopfuly
         if (medicalRecord != null) {
             String qrData = "Medical Record: " + medicalRecord.getConditions();  // Customize this based on your needs
             Bitmap qrCodeBitmap = generateQRCode(qrData);

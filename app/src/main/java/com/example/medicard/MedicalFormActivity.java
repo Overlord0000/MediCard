@@ -31,7 +31,7 @@
          super.onCreate(savedInstanceState);
          setContentView(R.layout.activity_medical_form);
 
-         // Initialize your EditText fields
+         // Initialize your EditText fields casting
          editTextConditions = findViewById(R.id.editTextConditionsform);
          editTextAllergies = findViewById(R.id.editTextAllergies);
          editTextMedications = findViewById(R.id.editTextMedicationsform);

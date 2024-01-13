@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 String userGender = btnMale.isChecked() ? "Male" : (btnFemale.isChecked() ? "Female" : "");
                 String userBloodGroup = SpinBloodGroup.getSelectedItem().toString();
 
-                // Convert the selected image to a byte array
+                // Convert the selected image to a byte array y
                 userProfile = convertImageToByteArray();
 
                 if (userProfilePictureUri != null) {
