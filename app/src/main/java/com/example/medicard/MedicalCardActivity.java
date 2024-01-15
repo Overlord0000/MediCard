@@ -49,7 +49,20 @@ public class MedicalCardActivity extends AppCompatActivity {
 
         // Generate QR code and set it to ImageView hopfuly
         if (medicalRecord != null) {
-            String qrData = "Medical Record: " + medicalRecord.getConditions();  // Customize this based on your needs
+            String qrData = "Medical Record:\n" +
+                    "Conditions: " + medicalRecord.getConditions() + "\n" +
+                    "Allergies: " + medicalRecord.getAllergies() + "\n" +
+                    "Medications: " + medicalRecord.getMedications() + "\n" +
+                    "Physician: " + medicalRecord.getPhysician() + "\n" +
+                    "Insurance: " + medicalRecord.getInsurance()+ "\n" +
+                    "Known Conditions: " + medicalRecord.getKnownConditions()+ "\n" +
+                    "Current Symptoms: " + medicalRecord.getCurrentSymptoms()+ "\n" +
+                    "Emergency Contact Form: " + medicalRecord.getEmergencyContactForm() + "\n" +
+                    "Emergency Contact Relationship: " + medicalRecord.getEmergencyContactRelationship() + "\n" +
+                    "Preferred Hospital: " + medicalRecord.getPreferredHospital() + "\n" +
+                    "Dietary Restrictions: " + medicalRecord.getDietaryRestrictions() + "\n" +
+                    "Recent Tests: " + medicalRecord.getRecentTests();
+
             Bitmap qrCodeBitmap = generateQRCode(qrData);
             qrImageView.setImageBitmap(qrCodeBitmap);
         }

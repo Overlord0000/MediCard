@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBhelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "MedicalCardDB";
+    private static final String DATABASE_NAME = "MedicalCard.db";
     private static final int DATABASE_VERSION = 1;
 
     private static final String TABLE_USER_PROFILES = "user_profiles";
@@ -146,22 +146,28 @@ public class DBhelper extends SQLiteOpenHelper {
 
         if (cursor != null && cursor.moveToFirst()) {
             medicalRecord = new MedicalRecord();
-            medicalRecord.setConditions(cursor.getString(cursor.getColumnIndex(COLUMN_CONDITIONS)));
-            medicalRecord.setAllergies(cursor.getString(cursor.getColumnIndex(COLUMN_ALLERGIES)));
-            medicalRecord.setMedications(cursor.getString(cursor.getColumnIndex(COLUMN_MEDICATIONS)));
-            medicalRecord.setPhysician(cursor.getString(cursor.getColumnIndex(COLUMN_PHYSICIAN)));
-            medicalRecord.setInsurance(cursor.getString(cursor.getColumnIndex(COLUMN_INSURANCE)));
-            medicalRecord.setKnownConditions(cursor.getString(cursor.getColumnIndex(COLUMN_KNOWN_CONDITIONS)));
-            medicalRecord.setCurrentSymptoms(cursor.getString(cursor.getColumnIndex(COLUMN_CURRENT_SYMPTOMS)));
-            medicalRecord.setEmergencyContactForm(cursor.getString(cursor.getColumnIndex(COLUMN_EMERGENCY_CONTACT_FORM)));
-            medicalRecord.setEmergencyContactRelationship(cursor.getString(cursor.getColumnIndex(COLUMN_EMERGENCY_CONTACT_RELATIONSHIP)));
-            medicalRecord.setPreferredHospital(cursor.getString(cursor.getColumnIndex(COLUMN_PREFERRED_HOSPITAL)));
-            medicalRecord.setDietaryRestrictions(cursor.getString(cursor.getColumnIndex(COLUMN_DIETARY_RESTRICTIONS)));
-            medicalRecord.setRecentTests(cursor.getString(cursor.getColumnIndex(COLUMN_RECENT_TESTS)));
+            medicalRecord.setConditions(getStringFromCursor(cursor, COLUMN_CONDITIONS));
+            medicalRecord.setAllergies(getStringFromCursor(cursor, COLUMN_ALLERGIES));
+            medicalRecord.setMedications(getStringFromCursor(cursor, COLUMN_MEDICATIONS));
+            medicalRecord.setPhysician(getStringFromCursor(cursor, COLUMN_PHYSICIAN));
+            medicalRecord.setInsurance(getStringFromCursor(cursor, COLUMN_INSURANCE));
+            medicalRecord.setKnownConditions(getStringFromCursor(cursor, COLUMN_KNOWN_CONDITIONS));
+            medicalRecord.setCurrentSymptoms(getStringFromCursor(cursor, COLUMN_CURRENT_SYMPTOMS));
+            medicalRecord.setEmergencyContactForm(getStringFromCursor(cursor, COLUMN_EMERGENCY_CONTACT_FORM));
+            medicalRecord.setEmergencyContactRelationship(getStringFromCursor(cursor, COLUMN_EMERGENCY_CONTACT_RELATIONSHIP));
+            medicalRecord.setPreferredHospital(getStringFromCursor(cursor, COLUMN_PREFERRED_HOSPITAL));
+            medicalRecord.setDietaryRestrictions(getStringFromCursor(cursor, COLUMN_DIETARY_RESTRICTIONS));
+            medicalRecord.setRecentTests(getStringFromCursor(cursor, COLUMN_RECENT_TESTS));
+
             cursor.close();
         }
 
         return medicalRecord;
     }
 
+    // Helper method to safely get a String from the cursor
+    private String getStringFromCursor(Cursor cursor, String columnName) {
+        int columnIndex = cursor.getColumnIndex(columnName);
+        return (columnIndex != -1) ? cursor.getString(columnIndex) : null;
+    }
 }
